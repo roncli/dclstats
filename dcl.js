@@ -2,11 +2,11 @@ var http = require("http"),
     fs = require("fs"),
     date = />[a-zA-Z]+, ([a-zA-Z]+ [0-9]{2})</g,
     pilotRx = /"view_profile\.php\?uid=([1-9][0-9]*)"/g,
-    firstDate = new Date(new Date().valueOf() + ((6 - new Date().getDay())) * 24 * 60 * 60 * 1000),
+    firstDate = new Date(new Date().valueOf() + ((-1 - new Date().getDay())) * 24 * 60 * 60 * 1000),
     lastDate,
     firstRealDate,
     lastRealDate,
-    NUM_DAYS = 8;
+    NUM_DAYS = 7;
 
 firstDate.setHours(0, 0, 0, 0);
 firstRealDate = new Date(firstDate.valueOf() + 1 * 24 * 60 * 60 * 1000);
@@ -143,6 +143,8 @@ getPilots = function() {
                     } else {
                         if (domination !== false && game.opponent.score <= domination) {
                             return "(<a target=\"blank\" class=\"link\" href=\"http://descentchampions.org/view_match.php?id=" + game.match + "\">link</a>) <span class=\"domination\">W " + game.pilot.score + " to " + game.opponent.score + " " + game.opponent.name + " (" + game.suicides + " suicides) " + game.game + " " + game.map + " <b>DOMINATION</b>" + (game.trophy !== 0 ? " <i>Trophy Match</i>" : "") + "</span><br />";
+                        } else if (game.pilot.score > game.opponent.score && game.opponent.score >= 15) {
+                            return "(<a target=\"blank\" class=\"link\" href=\"http://descentchampions.org/view_match.php?id=" + game.match + "\">link</a>) <span class=\"closegame\">W " + game.pilot.score + " to " + game.opponent.score + " " + game.opponent.name + " (" + game.suicides + " suicides) " + game.game + " " + game.map + " <b>CLOSE GAME</b>" + (game.trophy !== 0 ? " <i>Trophy Match</i>" : "") + "</span><br />";
                         } else {
                             return "(<a target=\"blank\" class=\"link\" href=\"http://descentchampions.org/view_match.php?id=" + game.match + "\">link</a>) " + (game.pilot.score > game.opponent.score ? "W" : "L") + " " + game.pilot.score + " to " + game.opponent.score + " " + game.opponent.name + " (" + game.suicides + " suicides) " + game.game + " " + game.map + (game.trophy !== 0 ? " <i>Trophy Match</i>" : "") + "<br />";
                         }
@@ -207,7 +209,7 @@ getPilots = function() {
                 }
             }
 
-            html = "<style>* {font-family: Arial; color: grey;} h2 {color: red;} h3 {color: blue;} h1, h4 {color: black;} .darkhorse {color: red; font-weight: bold;} .threat {color: blue; font-weight: bold;} .domination {color: green; font-weight: bold;} .link {color: blue;}</style>";
+            html = "<style>* {font-family: Arial; color: grey;} h2 {color: red;} h3 {color: blue;} h1, h4 {color: black;} .darkhorse {color: red; font-weight: bold;} .threat {color: blue; font-weight: bold;} .domination {color: green; font-weight: bold;} .closegame {color: black; font-weight: bold;} .link {color: blue;}</style>";
             html = html + "<h1>DCL Report</h1>";
             html = html + "<h4>" + (lastRealDate.getMonth() + 1) + "/" + lastRealDate.getDate() + " to " + (firstDate.getMonth() + 1) + "/" + firstDate.getDate() + "</h4>";
             html = html + "Total matches: " + totalMatches + "<br />";
