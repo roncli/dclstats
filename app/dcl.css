@@ -1,0 +1,44 @@
+* {
+    font-family: Arial;
+    color: grey;
+}
+
+h2, #error {
+    color: red;
+}
+
+h3 {
+    color: blue;
+}
+
+h1, h4, input, button {
+    color: black;
+}
+
+.darkhorse {
+    color: red;
+    font-weight: bold;
+}
+
+.threat {
+    color: blue;
+    font-weight: bold;
+}
+
+.domination {
+    color: green;
+    font-weight: bold;
+}
+
+.closegame {
+    color: black;
+    font-weight: bold;
+}
+
+.link {
+    color: blue;
+}
+
+.hidden {
+    display: none;
+}

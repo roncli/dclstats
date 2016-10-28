@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="dcl.css" />
+        <script src="dcl.js"></script>
+    </head>
+    <body onload="pageLoad()">
+        <h1>DCL Stats</h1>
+        <div id="parameters">
+            <h4>Please enter the dates for the report.</h4>
+            <input type="text" id="startDate" value="" />
+            through
+            <input type="text" id="endDate" value="" />
+            <br />
+            <button id="createReport" onclick="createReport()">Create Report</button>
+            <div id="error"></div>
+        </div>
+        <div id="status"></div>
+        <div id="results"></div>
+    </body>
+</html>

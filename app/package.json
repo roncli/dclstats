@@ -1,0 +1,11 @@
+{
+    "name": "dclstats",
+    "productName": "DCL Stats",
+    "author":{
+        "name": "Ronald M. Clifford",
+        "email": "roncli@roncli.com",
+        "url": "http://www.roncli.com"
+    },
+    "version": "0.1.0",
+    "description": "An application that uses the DCL pilot API written by Catherine \"Drakona\" Darrow to compile stats from the Descent Champion's Ladder at http://www.descentchampions.org."
+}

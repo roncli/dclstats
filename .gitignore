@@ -1,2 +1,4 @@
 .idea
-*.htm
+.vscode
+node_modules
+dist
