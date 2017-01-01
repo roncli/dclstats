@@ -110,10 +110,9 @@ var http = require("http"),
                             parsedDate;
 
                         while ((results = date.exec(body)) !== null) {
-
                             parsedDate = new Date(results[1] + " " + new Date().getFullYear());
-                            if (new Date(parsedDate.valueOf() - 100 * 24 * 60 * 60 * 1000) > new Date()) {
-                                parsedDate = new Date(parsedDate.getFullYear() - 1, parsedDate.getMonth(), parsedDate.getDay());
+                            if (parsedDate > new Date()) {
+                                parsedDate = new Date(parsedDate.getFullYear() - 1, parsedDate.getMonth(), parsedDate.getDate());
                             }
 
                             if (parsedDate < lastDate) {
@@ -138,7 +137,6 @@ var http = require("http"),
 
             getNextPage = (err) => {
                 if (err) {
-
                     showError("Error getting page.<br />" + err);
                     return;
                 }
