@@ -15,8 +15,9 @@
         "dist": "node_modules/.bin/build.cmd"
     },
     "devDependencies": {
-        "electron-builder": "7.15.2",
-        "electron-prebuilt": "1.4.4"
+        "babel-eslint": "^10.0.2",
+        "electron": "6.0.1",
+        "electron-builder": "21.2.0"
     },
     "repository": {
         "type": "git",

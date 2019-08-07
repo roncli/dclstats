@@ -56,7 +56,7 @@ var http = require("http"),
             getPilot = (pilotId, callback) => {
                 "use strict";
 
-                http.get("http://descentchampions.org/pilot_data.php?uid=" + pilotId, (res) => {
+                http.get("http://descentchampions.org/pilot_data.php?uid=" + pilotId + "&season=lifetime", (res) => {
                     addStatus("Getting pilot " + pilotId);
                     var body = "";
 
@@ -96,7 +96,7 @@ var http = require("http"),
             },
 
             getPage = (pageId, callback) => {
-                http.get("http://descentchampions.org/recent_matches.php?page=" + pageId, (res) => {
+                http.get("http://descentchampions.org/recent_matches.php?page=" + pageId + "&season=lifetime", (res) => {
                     addStatus("Getting page " + pageId);
 
                     var body = "";
